@@ -30,7 +30,7 @@ app.get('/gallery', (req, res) => {
 
 });
 
-app.use('/gallery', (req, res, next) => {
+app.use('/galleryShop', (req, res, next) => {
     var MongoClient = require('mongodb').MongoClient;
     const url = "mongodb+srv://ud:ud@cluster0.szg5vgf.mongodb.net/?retryWrites=true&w=majority";
     MongoClient.connect(url, function (err, client) {
@@ -42,12 +42,13 @@ app.use('/gallery', (req, res, next) => {
             const filteredArt = art.filter(art => {
                 let isValid = true;
                 for (key in filters) {
+                    console.log(res.query)
                     console.log(key, art[key], filters[key]);
                     isValid = isValid && art[key] == filters[key];
                 }
                 return isValid;
 
-                res.send('gallery.ejs', {artList:filteredArt});
+                res.send('galleryShop.ejs', {artList:filteredArt});
             });
         });
     });
