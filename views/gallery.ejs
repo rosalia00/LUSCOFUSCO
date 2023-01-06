@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <title>Gallery</title>
+    <meta charset="UTF-8">
+    <!-- Styles -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/static/css_ejs/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/static/css/layout.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body style="background-color:white;">
+
+
+<header id="header" class="hoc clear"><br>
+    <div id="logo" class="fl_left">
+        <a href="http://127.0.0.1:5000/index">
+            <h1>LUSCOFUSCO</h1> </a>
+        <h2>GALLERY</h2>
+        <p>Enjoy our complete collection of art pieces.</p><br><br>
+    </div>
+</header>
+<!-- Gallery -->
+<div class="row justify-content-md-center ">
+    <div class="col-md-10 col-sm-12">
+        <div class="card-columns">
+            <%artList.forEach(art => {%>
+                <div class="card card-hover h-100" >
+                    <div class="card-body">
+                        <figure>
+                            <img class="card-img-top"
+                                 alt="<%= art.description %> <b>Collection:</b><p> <%= art.ArtCollection %>
+                                 </p> <b>Date Created:</b><p><%= art.displayDateCreated %></p>
+                                 <b>Place of creation:</b><p><%= art.placeOfCreation %></p>
+                                 <b>Room:</b><p><%= art.room %></p>
+                                 <b>Owned by:</b><p><%= art.ownedBy %></p>"  src="<%= art.image %>">
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption">
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <figcaption><%= art.title %></figcaption><br>
+            <%})%>
+            <script type="text/javascript">
+                // Get the modal
+                var modal = document.getElementById("myModal");
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var images = document.getElementsByClassName("card-img-top");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                for (var i = 0; i < images.length; i++) {
+                    var img = images[i];
+                    // and attach our click listener for this image.
+                    img.onclick = function(evt) {
+                        modal.style.display = "block";
+                        modalImg.src = this.src;
+                        captionText.innerHTML = this.alt;
+                    }
+                }
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<!-- End Gallery -->
+
+</body>
+</html>

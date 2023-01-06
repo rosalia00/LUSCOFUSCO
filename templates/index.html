@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>LUSCOFUSCO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../static/css/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top" ><br>
+<div class="bgded overlay" style=background-image:url("../static/images/02.png")>
+
+  <div class="wrapper row1" >
+    <header id="header" class="hoc clear"> 
+      <div id="logo" class="fl_left">
+        <h1>LUSCOFUSCO</h1>
+      </div>
+
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a href="{{url_for('logout')}}">LOG OUT</a></li>
+        </ul>
+      </nav>
+     </header>
+  </div>
+
+  <div id="pageintro" class="hoc clear">
+    <article>
+      <h3 class="heading">Welcome</h3>
+      <p>Enter our database to see online all our art pieces.</p>
+      <footer>
+          <fieldset>
+
+            <div id="description">
+              <input type="button" onclick="location.href='http://127.0.0.1:3000/gallery';" value="ONLINE GALLERY" />
+            </div>
+            </fieldset>
+      </footer>
+    </article>
+   </div>
+
+</div>
+
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear">
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+  </div>
+</div>
+
+</body>
+</html>
