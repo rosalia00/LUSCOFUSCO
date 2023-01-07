@@ -57,14 +57,18 @@ app.post('/galleryResults', (req, res, next) => {
     MongoClient.connect(url, function (err, client) {
         if (err) throw err;
         var db = client.db('luscofusco');
-        var artModel = db.collection('artgallery')
-            artModel.findOne({ title: req.body.nameArt }, function (err, art) {
-                console.log(req.body.nameArt);
-                console.log(art);
-                    res.render('galleryResults.ejs', {art:art});
-                });
-            client.close();
+        var artModel = db.collection('artgallery');
+        artModel.findOne({ title: req.body.nameArt }, function (findErr, art) {
+            console.log(req.body.nameArt);
+            console.log(art);
+           if (art) {
+            res.render('galleryResults', {art:art});
+            } else {
+                res.render(err);
+            }
         });
+        client.close();
+    });
 
 });
 app.listen(3000,function () {
