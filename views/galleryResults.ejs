@@ -15,48 +15,45 @@
 
 
 <header id="header" class="hoc clear"><br>
-<div id="contenedor">
-    <div id="logo" class="fl_left">
-        <a href="http://127.0.0.1:5000/index">
-            <h1>LUSCOFUSCO</h1> </a>
-        <h2>GALLERY</h2>
-        <h4>Enjoy our complete collection of art pieces.</h4>
-    </div>
+    <div id="contenedor">
+        <div id="logo" class="fl_left">
+            <a href="http://127.0.0.1:5000/index">
+                <h1>LUSCOFUSCO</h1> </a>
+            <h2>GALLERY</h2>
+            <h5>This are the results of your search that we currently own or are holding for an exposition.</h5>
 
-    <div id="cover">
-        <form method="POST" action="/galleryResults">
-            <div class="tb">
-                <div class="td">
-                    <input type="text" placeholder="Search" name="nameArt" required/>
+        </div>
+        <div id="cover">
+            <form method="get" action="">
+                <div class="tb">
+                    <div class="td">
+                        <input type="text" placeholder="Search" required>
+                    </div>
+                    <div class="td" id="s-cover">
+                        <button type="submit">
+                            <div id="s-circle"></div>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
-                <div class="td" id="s-cover">
-                    <button type="submit" onclick="location.href='http://127.0.0.1:3000/galleryResults';">
-                        <div id="s-circle"></div>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
-<div>
-    <p>If you want to see any specific art piece you can search it by its name.  </p>
-    <p>Since we also showcase pieces owned by other galleries or the State not all of them are available to buy. Check if there's any you like instead in our shop </p>
-    <input class="button-6" type="button"  onclick="location.href='http://127.0.0.1:3000/galleryShop';" value="Our shop!"/><br><br>
-    <br>
-</div>
+    <br><br><br><br><br>
+
 </header>
 <!-- Gallery -->
 <div class="row justify-content-md-center ">
     <div class="col-md-10 col-sm-12">
         <div class="card-columns">
-            <%artList.forEach(art => {%>
                 <div class="card card-hover h-100" >
+
                     <div class="card-body">
-                        <figure>
+
                             <img class="card-img-top"
-                                 alt="<%= art.description %> <b>Collection:</b><p> <%= art.ArtCollection %>
-                                 </p> <b>Date Created:</b><p><%= art.displayDateCreated %></p>
+                                 alt="<%= art.description %>
+                                  <b>Collection:</b><p><%= art.ArtCollection %> </p>
+                                  <b>Date Created:</b><p><%= art.displayDateCreated %></p>
                                  <b>Place of creation:</b><p><%= art.placeOfCreation %></p>
                                  <b>Room:</b><p><%= art.room %></p>
                                  <b>Owned by:</b><p><%= art.ownedBy %></p>"  src="<%= art.image %>">
@@ -66,11 +63,10 @@
                                 <div id="caption">
                                 </div>
                             </div>
-                        </figure>
                     </div>
                 </div>
                 <figcaption><%= art.title %></figcaption><br>
-            <%})%>
+
             <script type="text/javascript">
                 // Get the modal
                 var modal = document.getElementById("myModal");
